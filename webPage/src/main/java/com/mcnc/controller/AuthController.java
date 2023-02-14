@@ -1,5 +1,6 @@
 package com.mcnc.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,20 +13,17 @@ import com.mcnc.service.UserInfoService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("api/userinfo")
+@RequiredArgsConstructor
 public class AuthController {
 	
 	private final UserInfoService userinfoService;
 	
-	@RequestMapping(value = "/api/regist", method= {RequestMethod.POST})
-	public String insertUserInfo(@RequestBody UserInfo userinfo )throws Exception{
-		try {
-			
-		}catch(Exception ex){
-			
-		}
-		return null;
+	@RequestMapping(value = "/regist", method= {RequestMethod.POST})
+	public int insertUserInfo(@RequestBody UserInfo userinfo , HttpSession session)throws Exception{	
+			int result = userinfoService.insertUser(userinfo);
+			return result;
+		
 	}
 	
 

@@ -9,4 +9,8 @@ public interface UserInfoMapper {
 	
 	UserInfo getUserInfo(String id) ;
 
+	int insertUserInfo(UserInfo userinfo);
+	
+	int updateUserInfo(UserInfo userinfo);
+	int deleteUserInfo(UserInfo userinfo);
 }
